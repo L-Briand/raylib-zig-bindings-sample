@@ -7,4 +7,6 @@ To run, init git submodules and run `zig build run`
 
 ```bash
 git submodule init
+git submodule update
+
 ```
