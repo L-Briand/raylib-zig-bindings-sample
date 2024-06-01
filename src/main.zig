@@ -14,8 +14,8 @@ pub fn main() !void {
     while (!rl.WindowShouldClose()) {
         rl.BeginDrawing();
         const style = rg.GuiGetStyle(
-            rg.GuiControl.DEFAULT.toValue(),
-            rg.GuiDefaultProperty.BACKGROUND_COLOR.toValue(),
+            rg.GuiControl.DEFAULT.toCInt(),
+            rg.GuiDefaultProperty.BACKGROUND_COLOR.toCInt(),
         );
         rl.ClearBackground(rl.GetColor(@bitCast(style)));
 
