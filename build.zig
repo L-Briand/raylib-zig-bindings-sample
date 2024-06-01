@@ -29,10 +29,17 @@ pub fn build(b: *std.Build) !void {
     // This line copy the raygui.h file into raylib/src to build with it.
     try setup.addRayguiToRaylibSrc(b, .{ .cwd_relative = "raygui/src/raygui.h" });
 
-    // If you have some raylib's C #define requirements that need to be at build time. You can set them here.
-    setup.setRayguiOptions(b, exe, .{});
-    setup.setRCameraOptions(b, exe, .{});
-    setup.setRlglOptions(b, exe, .{});
+    // If you have some raylib's C #define requirements that need to be at build time.
+    // You can set them here:
+    // setup.setRayguiOptions(b, exe, .{});
+    // setup.setRCameraOptions(b, exe, .{});
+    // setup.setRlglOptions(b, exe, .{});
+
+    // Note:
+    // Some target needs specific opengl api version (RlglOption).
+    // For example linux .platform = DRM requires opengl_es2
+    // If you do not uncomment the setup.setRlglOptions above.
+    // It will add it automatically when linking.
 
     // Build specific for platform.
     switch (target.result.os.tag) {
